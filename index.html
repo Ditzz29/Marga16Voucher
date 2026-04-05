@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <ditzz charset="UTF-8">
+    <ditzz name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point M Gamers - Top Up FF</title>
+    <style>
+        :root {
+            --primary: #ff416c;
+            --secondary: #ff4b2b;
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #ffffff;
+            --accent: #25d366;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
+        .header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+
+        .section {
+            background: var(--card);
+            margin: 20px 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .number-badge {
+            background: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #252525;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .payment-method {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #252525;
+            border: 1px dashed #444;
+            font-size: 0.85rem;
+        }
+        .copy-text { color: var(--secondary); font-weight: bold; }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            margin: 20px 15px;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .btn-wa:active { transform: scale(0.98); }
+
+        .footer { text-align: center; font-size: 0.75rem; color: #666; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>POINT M GAMERS</h1>
+        <p>Top Up Free Fire - Dana Pelajar ⚡</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="section">
+        <div class="section-title"><span class="number-badge">1</span> Masukkan User ID</div>
+        <input type="number" id="userid" placeholder="Contoh: 12345678" required>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="section">
+        <div class="section-title"><span class="number-badge">2</span> Pilih Nominal Diamond</div>
+        <select id="diamond">
+            <option value="7 Diamond - 1rb">7 Diamond - Rp 1.000</option>
+            <option value="14 Diamond - 3rb">14 Diamond - Rp 3.000</option>
+            <option value="52 Diamond - 8rb">52 DIAMOND - Rp 8.000</option>
+            <option value="74 Diamond - 10rb">74 DIAMOND - Rp 10.000</option>
+            <option value="91 Diamond - 13rb">91 DIAMOND - Rp 13.000</option>
+            <option value="147 Diamond - 20rb">147 DIAMOND - Rp 20.000</option>
+            <option value="221 Diamond - 30rb">221 DIAMOND - Rp 30.000</option>
+            <option value="373 Diamond - 50rb">373 DIAMOND - Rp 50.000</option>
+            <option value="756 Diamond - 100rb">756 DIAMOND - Rp 100.000</option>
+            <option value="1.550 Diamond - 200rb">1.550 DIAMOND - Rp 200.000</option>
+            <option value="3.100 Diamond - 300rb">3.100 DIAMOND - Rp 300.000</option>
+        </select>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="section">
+        <div class="section-title"><span class="number-badge">3</span> Metode Pembayaran</div>
+        <select id="payment">
+            <option value="Dana">DANA</option>
+            <option value="Gopay">GOPAY</option>
+        </select>
+        
+        <div class="payment-method" id="pay-info">
+            Transfer ke: <br>
+            <span class="copy-text">DANA: 089513192447</span><br>
+            <span class="copy-text">GOPAY: 083857251778</span>
+        </div>
+    </div>
+
+    <a href="javascript:void(0)" class="btn-wa" onclick="sendOrder()">
+        KIRIM PESANAN SEKARANG
+    </a>
+
+    <div class="footer">
+        Proses Instan, Aman, dan Terpercaya.<br>
+        © 2026 Point M Gamers.
+    </div>
+</div>
+
+<script>
+    function sendOrder() {
+        const userid = document.getElementById('userid').value;
+        const diamond = document.getElementById('diamond').value;
+        const payment = document.getElementById('payment').value;
+        
+        if (!userid) {
+            alert("Harap masukkan User ID Anda!");
+            return;
+        }
+
+        const adminWA = "6289513192447"; 
+        const message = `*HALO ADMIN POINT M GAMERS*%0A%0A` +
+                        `Saya mau top up Free Fire:%0A` +
+                        `----------------------------%0A` +
+                        `*User ID* : ${userid}%0A` +
+                        `*Nominal* : ${diamond}%0A` +
+                        `*Metode*  : ${payment}%0A` +
+                        `----------------------------%0A` +
+                        `Mohon segera diproses ya min. Terima kasih!`;
+
+        const waLink = `https://wa.me/${adminWA}?text=${message}`;
+        window.open(waLink, '_blank');
+    }
+</script>
+
+</body>
+</html>
